@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+<title>Hello World, AngularJS</title>
+<script type="text/javascript"
+	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+</head>
+<body>
+	<div ng-controller="ContactController">
+		Nom:<input type="text" ng-model="newContact.name" ng-init="contact='anna'"/> Age:<input type="text"
+			ng-model="newContact.age" ng-init="contact='30'" /> Salary:<input type="text" ng-model="newContact.salary" ng-init="contact='50'"/>
+
+		<button ng-click="add()">Ajouter</button>
+
+		<h2>Personnes</h2>
+		<ul>
+			<li ng-repeat="contact in contacts ">Nom : {{ contact.name }}
+				Age : {{ contact.age }} Salary : {{ contact.salary }}
+				<button ng-click="delete($index)">Supprimer</button>
+				<button ng-click="update(contact)">Modifier</button>
+			</li>
+		</ul>
+
+	</div>
+
+	<script type="text/javascript">
+ function ContactController($scope) {
+	 $scope.contacts = [
+	                    {"name": "Choquet", "age": 18, "salary": 10000},
+	                    {"name": "Laignel", "age": 21, "salary": 50000},
+	                    {"name": "Tardy", "age": 19, "salary": 3000},
+	                   ];
+	 
+	 $scope.add = function() {
+		 $scope.contacts.push($scope.newContact);
+	 }
+	 
+	 $scope.delete = function($index) {
+		$scope.contacts.splice($index, 1);
+	 }
+	 $scope.update = function(contact) {
+		 $scope.newContact = contact;
+
+		 }
+	 
+	 
+ }
+</script>
+
+
+</body>
+</html>
