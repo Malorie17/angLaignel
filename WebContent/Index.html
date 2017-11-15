@@ -11,7 +11,7 @@
 			ng-model="newContact.age" ng-init="contact='30'" /> Salary:<input type="text" ng-model="newContact.salary" ng-init="contact='50'"/>
 
 		<button ng-click="add()">Ajouter</button>
-
+		<h1>Titre</h1>
 		<h2>Personnes</h2>
 		<ul>
 			<li ng-repeat="contact in contacts ">Nom : {{ contact.name }}
@@ -29,11 +29,11 @@
 	                    {"name": "Laignel", "age": 21, "salary": 50000},
 	                    {"name": "Tardy", "age": 19, "salary": 3000},
 	                   ];
-	 
+
 	 $scope.add = function() {
 		 $scope.contacts.push($scope.newContact);
 	 }
-	 
+
 	 $scope.delete = function($index) {
 		$scope.contacts.splice($index, 1);
 	 }
@@ -41,8 +41,8 @@
 		 $scope.newContact = contact;
 
 		 }
-	 
-	 
+
+
  }
 </script>
 
